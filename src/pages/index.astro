@@ -1,17 +1,33 @@
 ---
+import MainLayout from "../layouts/MainLayout.astro";
 
+const nombre = "Samuel Castro";
+
+const fechaActualizacion = new Date().toLocaleDateString();
+const horaActualizacion = new Date().toLocaleTimeString();
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro</title>
-	</head>
-	<body>
-		<h1>Samuel Castro</h1>
-	</body>
-</html>
+<MainLayout title="Home">
+  <h1>Bienvenido a mi sitio web</h1>
+  <p>Mi nombre es {nombre}</p>
+
+  <footer>
+    <p>{fechaActualizacion} {horaActualizacion}</p>
+    <p id="hora_actual"></p>
+  </footer>
+
+  <script>
+    const horaActualElemento = document.querySelector(
+      "#hora_actual",
+    ) as HTMLParagraphElement;
+
+    const horaActual = new Date().toLocaleTimeString("es-ES", {
+      hour: "2-digit",
+      minute: "2-digit",
+      second: "2-digit",
+      hour12: true,
+    });
+
+    horaActualElemento.textContent = `La hora actual es: ${horaActual}`;
+  </script>
+</MainLayout>
