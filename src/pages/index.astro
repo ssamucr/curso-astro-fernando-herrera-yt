@@ -14,7 +14,7 @@ const horaActualizacion = new Date().toLocaleTimeString();
   <p>Todo esto pertenece al codigo creado de practica para el curso de Astro de Fernando Herrera</p>
 
   <footer>
-    <p>{fechaActualizacion} {horaActualizacion}</p>
+    <p>Publicación: {fechaActualizacion} {horaActualizacion}</p>
     <p id="hora_actual"></p>
   </footer>
 
@@ -30,6 +30,6 @@ const horaActualizacion = new Date().toLocaleTimeString();
       hour12: true,
     });
 
-    horaActualElemento.textContent = `La hora actual es: ${horaActual}`;
+    horaActualElemento.textContent = `Hora actual es: ${horaActual}`;
   </script>
 </MainLayout>
